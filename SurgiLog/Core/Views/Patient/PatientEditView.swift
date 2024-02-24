@@ -148,7 +148,6 @@ struct PatientPreview {
         patients[0].imageData = data
         try? container.mainContext.save()
     }
-    
 }
 #Preview {
     let preview = PatientPreview()
