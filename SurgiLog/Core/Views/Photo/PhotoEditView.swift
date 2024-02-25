@@ -11,16 +11,23 @@ import PhotosUI
 
 @Model
 class Photo {
-    var imageData: Data? = nil
-    var name: String = ""
+    private(set) var imageData: Data? = nil
+    var photoDescription: String = ""
     var imageType: ImageType?
     var imageViewDirection: ImageViewDirection?
     var photoGroup: PhotoGroup?
     var patient: Patient?
     var surgery: Surgery?
-    init(imageData: Data? = nil, name: String = "", photoGroup: PhotoGroup? = nil) {
+    var createDate: Date = Date()
+    var modifiedDate: Date = Date()
+    
+    func setImageData(_ data: Data?) {
+        modifiedDate = Date()
+        imageData = data
+    }
+    init(imageData: Data? = nil, photoDescription: String = "", photoGroup: PhotoGroup? = nil) {
         self.imageData = imageData
-        self.name = name
+        self.photoDescription = photoDescription
     }
 }
 
@@ -72,45 +79,78 @@ struct PhotoEditView: View {
     @Query var imageTypes: [ImageType]
     
     @Bindable var photo: Photo
+    var save: (Photo)->()
+    var delete: (Photo)->()
+    
+    @State private var imageData: Data?
     @State private var photoItem: PhotosPickerItem?
     @State private var isShowingCameraSheet = false
+    @State private var isImagePresented = false
     @Environment(\.dismiss) var dismiss
     
     var body: some View {
         ScrollView {
             if let data = photo.imageData, let uiImage = UIImage(data: data) {
-                Image(uiImage: uiImage)
+                let image = Image(uiImage: uiImage)
+                image
                     .resizable()
                     .scaledToFit()
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .cornerRadius(6)
-                    .padding(.leading)
+                    .padding()
+                    .onTapGesture {
+                        isImagePresented = true
+                    }
+                    .fullScreenCover(isPresented: $isImagePresented) {
+                        SwiftUIImageViewer(image: image)
+                            .overlay(alignment: .topTrailing) {
+                                Button {
+                                    isImagePresented.toggle()
+                                } label: {
+                                    Text("Done")
+                                }
+                            }
+                    }
             }
-            LibraryPhotoPicker(photoItem: $photoItem, imageData: $photo.imageData).frame(width: 30, height: 30)
+                
+            
+            LibraryPhotoPicker(photoItem: $photoItem, imageData: $imageData).frame(width: 30, height: 30)
+                .onChange(of: imageData) { oldValue, newValue in
+                    photo.setImageData(imageData)
+                }
             showCameraSheetButton.frame(width: 30, height: 30).padding()
                 .sheet(isPresented: $isShowingCameraSheet, content: {
-                    Text("Camera View")
+                    CameraView { data in
+                        photo.setImageData(data)
+                    }
                 })
-            VStack {
-                TextField("Photo Name", text: $photo.name)
-                    .textFieldStyle(.roundedBorder)
-                HStack {
-                    Text("Type")
-                    Picker("Image Type", selection: $photo.imageType) {
-                        Text("Not selected").tag(Optional<ImageType>.none)
-                        if imageTypes.count > 0 {
-                            Divider()
-                            ForEach(imageTypes){ imageType in
-                                Text(imageType.name).tag(imageType as ImageType?)
-                            }
+            
+            
+            TextField("Photo Name", text: $photo.photoDescription)
+                .textFieldStyle(.roundedBorder)
+            HStack {
+                Text("Type")
+                Picker("Image Type", selection: $photo.imageType) {
+                    Text("Not selected").tag(Optional<ImageType>.none)
+                    if imageTypes.count > 0 {
+                        Divider()
+                        ForEach(imageTypes){ imageType in
+                            Text(imageType.name).tag(imageType as ImageType?)
                         }
                     }
                 }
             }
+            Button(role: .destructive) {
+                delete(photo)
+            } label: {
+                Text("Delete")
+            }
+
         }
         .toolbar {
             Button {
-                
+                save(photo)
+                dismiss()
             } label: {
                 Text("Save")
             }
@@ -131,7 +171,7 @@ struct PhotoEditView: View {
     do {
         let previewer = try Previewer()
         return NavigationStack {
-            PhotoEditView(photo: previewer.photos1.first!)
+            PhotoEditView(photo: previewer.photos1.first!, save: {_ in}, delete: {_ in})
                 .navigationTitle("Photo Edit")
         }
     } catch {

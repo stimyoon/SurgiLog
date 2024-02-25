@@ -14,7 +14,7 @@ class ImageType {
     var photos: [Photo]?
     var createDate = Date()
     
-    init(name: String = "", photo: [Photo]? = nil) {
+    init(name: String = "", photo: [Photo]? = []) {
         self.name = name
         self.photos = photo
     }
@@ -33,7 +33,7 @@ class ImageType {
 class ImageViewDirection {
     var name = ""
     var photos: [Photo]?
-    init(name: String = "", photos: [Photo]? = nil) {
+    init(name: String = "", photos: [Photo]? = []) {
         self.name = name
         self.photos = photos
     }

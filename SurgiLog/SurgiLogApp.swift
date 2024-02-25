@@ -25,10 +25,12 @@ struct SurgiLogApp: App {
 
     var body: some Scene {
         WindowGroup {
-            NavigationStack {
-                ImageTypeListView()
-                    .navigationTitle("Image Type List")
-            }
+//            NavigationStack {
+//                ImageTypeListView()
+//                    .navigationTitle("Image Type List")
+                MainView()
+//                    .navigationTitle("Patients")
+//            }
         }
         .modelContainer(for: [
             Item.self, Hospital.self, Photo.self, PhotoGroup.self, Patient.self, Surgery.self, Procedure.self, ImageType.self

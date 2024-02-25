@@ -16,6 +16,11 @@ struct SettingsScreen: View {
             } label: {
                 Text("Hospitals")
             }
+            NavigationLink {
+                ImageTypeListView()
+            } label: {
+                Text("Image Types")
+            }
 
         }
     }

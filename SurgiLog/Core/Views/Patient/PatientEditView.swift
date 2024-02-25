@@ -77,7 +77,9 @@ struct PatientEditView: View {
                 Spacer()
                 showCameraSheetButton.frame(width: 30, height: 30).padding()
                     .sheet(isPresented: $isShowingCameraSheet, content: {
-                        Text("Camera View")
+                        CameraView { data in
+                            patient.imageData = data
+                        }
                     })
                 PhotosPicker(selection: $photoItem, matching: .images) {
                     Image(systemName: "photo.stack").resizable().scaledToFit().frame(width: 30, height: 30)

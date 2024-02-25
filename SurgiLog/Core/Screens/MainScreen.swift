@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct MainView: View {
+    @Environment(\.modelContext) var modelContext
+    @Query var imageTypes: [ImageType]
+    
     var body: some View {
         TabView {
 //            Text("Surgeries")
@@ -17,14 +21,32 @@ struct MainView: View {
                     .navigationTitle("Patients")
             }
             .tabItem { Label("Patients", systemImage: "person.circle") }
-            Text("Photos")
-                .tabItem { Label("Photos", systemImage: "photo")}
+            
+            NavigationStack {
+                PhotoListView()
+                    .navigationTitle("Photos")
+            }
+            .tabItem { Label("Photos", systemImage: "photo")}
+            
             NavigationStack {
                 SettingsScreen()
                     .navigationTitle("Settings")
             }
             .tabItem { Label("Settings", systemImage: "gear")}
         }
+        .task {
+            setupDatabase()
+        }
+    }
+    func setupDatabase() {
+        ImageType.manatoryItems.forEach { mandatoryImageType in
+            if !imageTypes.contains(where: { type in
+                type.name == mandatoryImageType.name
+            }) {
+                modelContext.insert(mandatoryImageType)
+            }
+        }
+        
     }
 }
 

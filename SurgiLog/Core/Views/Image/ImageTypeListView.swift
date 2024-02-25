@@ -58,13 +58,13 @@ struct ImageTypeListView: View {
         ImageType.names.contains(type.name)
     }
     func setupDataBase() {
-        ImageType.manatoryItems.forEach { mandatoryImageType in
-            if !imageTypes.contains(where: { type in
-                type.name == mandatoryImageType.name
-            }) {
-                modelContext.insert(mandatoryImageType)
-            }
-        }
+//        ImageType.manatoryItems.forEach { mandatoryImageType in
+//            if !imageTypes.contains(where: { type in
+//                type.name == mandatoryImageType.name
+//            }) {
+//                modelContext.insert(mandatoryImageType)
+//            }
+//        }
         
     }
 }

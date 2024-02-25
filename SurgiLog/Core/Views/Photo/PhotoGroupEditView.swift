@@ -27,7 +27,7 @@ struct PhotoGroupEditView: View {
                 Button(action: {
                     
                     if let uiImage = UIImage(named: name), let data = uiImage.pngData() {
-                        let photo = Photo(imageData: data, name: name, photoGroup: photoGroup)
+                        let photo = Photo(imageData: data, photoDescription: name, photoGroup: photoGroup)
                         modelContext.insert(photo)
                         photoGroup.photos?.append(photo)
 //                        try? modelContext.save()

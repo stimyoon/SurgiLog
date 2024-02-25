@@ -26,6 +26,10 @@
 		4CA4EEE92B8ADAEE00CB81FF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEE82B8ADAEE00CB81FF /* Models.swift */; };
 		4CA4EEEB2B8AE15F00CB81FF /* ImageTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEEA2B8AE15F00CB81FF /* ImageTypeListView.swift */; };
 		4CA4EEED2B8B803D00CB81FF /* LibraryPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEEC2B8B803D00CB81FF /* LibraryPhotoPicker.swift */; };
+		4CA4EEEF2B8B924300CB81FF /* PhotoEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEEE2B8B924300CB81FF /* PhotoEditorView.swift */; };
+		4CA4EEF12B8B937100CB81FF /* SwiftUIImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEF02B8B937100CB81FF /* SwiftUIImageViewer.swift */; };
+		4CA4EEF52B8B956000CB81FF /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEF42B8B956000CB81FF /* CameraView.swift */; };
+		4CA4EEF72B8B9E4A00CB81FF /* PhotoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEF62B8B9E4A00CB81FF /* PhotoListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +55,10 @@
 		4CA4EEE82B8ADAEE00CB81FF /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		4CA4EEEA2B8AE15F00CB81FF /* ImageTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTypeListView.swift; sourceTree = "<group>"; };
 		4CA4EEEC2B8B803D00CB81FF /* LibraryPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPhotoPicker.swift; sourceTree = "<group>"; };
+		4CA4EEEE2B8B924300CB81FF /* PhotoEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditorView.swift; sourceTree = "<group>"; };
+		4CA4EEF02B8B937100CB81FF /* SwiftUIImageViewer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftUIImageViewer.swift; path = "../../../../../Library/Messages/Attachments/d9/09/53649F76-8A7E-46F7-96C9-DEF5C78BB76E/SwiftUIImageViewer.swift"; sourceTree = "<group>"; };
+		4CA4EEF42B8B956000CB81FF /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		4CA4EEF62B8B9E4A00CB81FF /* PhotoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +165,8 @@
 				4CA4EED62B899EAC00CB81FF /* PhotoEditView.swift */,
 				4CA4EEDB2B899ED800CB81FF /* PhotoGroupEditView.swift */,
 				4CA4EED92B899ED100CB81FF /* PhotoGroupListView.swift */,
+				4CA4EEEE2B8B924300CB81FF /* PhotoEditorView.swift */,
+				4CA4EEF62B8B9E4A00CB81FF /* PhotoListView.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -165,8 +175,10 @@
 			isa = PBXGroup;
 			children = (
 				4CA4EEDE2B89A03400CB81FF /* Nameable.swift */,
+				4CA4EEF02B8B937100CB81FF /* SwiftUIImageViewer.swift */,
 				4CA4EEEC2B8B803D00CB81FF /* LibraryPhotoPicker.swift */,
 				4CA4EEE52B8A2B3700CB81FF /* ProfilePhotoView.swift */,
+				4CA4EEF42B8B956000CB81FF /* CameraView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -252,9 +264,12 @@
 			files = (
 				4CA4EEB62B89824100CB81FF /* ContentView.swift in Sources */,
 				4CA4EEEB2B8AE15F00CB81FF /* ImageTypeListView.swift in Sources */,
+				4CA4EEEF2B8B924300CB81FF /* PhotoEditorView.swift in Sources */,
+				4CA4EEF52B8B956000CB81FF /* CameraView.swift in Sources */,
 				4CA4EEDC2B899ED800CB81FF /* PhotoGroupEditView.swift in Sources */,
 				4CA4EEE32B8A202700CB81FF /* PatientListView.swift in Sources */,
 				4CA4EEE62B8A2B3700CB81FF /* ProfilePhotoView.swift in Sources */,
+				4CA4EEF12B8B937100CB81FF /* SwiftUIImageViewer.swift in Sources */,
 				4CA4EECA2B8982D900CB81FF /* MainScreen.swift in Sources */,
 				4CA4EECF2B89888500CB81FF /* HospitalListView.swift in Sources */,
 				4CA4EEE02B89A03400CB81FF /* Nameable.swift in Sources */,
@@ -264,6 +279,7 @@
 				4CA4EEB42B89824100CB81FF /* SurgiLogApp.swift in Sources */,
 				4CA4EEE92B8ADAEE00CB81FF /* Models.swift in Sources */,
 				4CA4EED72B899EAC00CB81FF /* PhotoEditView.swift in Sources */,
+				4CA4EEF72B8B9E4A00CB81FF /* PhotoListView.swift in Sources */,
 				4CA4EED52B898D4200CB81FF /* PatientEditView.swift in Sources */,
 				4CA4EEED2B8B803D00CB81FF /* LibraryPhotoPicker.swift in Sources */,
 				4CA4EED22B898A7A00CB81FF /* SettingsScreen.swift in Sources */,
@@ -405,6 +421,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SurgiLog/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to work";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to PhotoLibrary to work";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -436,6 +454,8 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SurgiLog/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "This app needs camera access to work";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "This app needs access to PhotoLibrary to work";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

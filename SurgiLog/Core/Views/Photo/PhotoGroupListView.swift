@@ -29,7 +29,7 @@ struct PhotoGroupCellView: View {
                                 .frame(width: 100, height: 100)
                                 .clipped()
                         }
-                        Text("\(photo.name)")
+                        Text("\(photo.photoDescription)")
                     }
                 }
             }
