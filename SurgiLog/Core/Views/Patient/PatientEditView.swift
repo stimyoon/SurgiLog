@@ -132,28 +132,22 @@ struct PatientEditView: View {
     }
 }
 
-@MainActor
-struct PatientPreview {
+
+#Preview {
     let config = ModelConfiguration(isStoredInMemoryOnly: true)
-    let container: ModelContainer
+    let container: ModelContainer = try! ModelContainer(for: Patient.self, configurations: config)
     let patients: [Patient] = [
         .init(firstName: "John", middleName: "Mid", lastName: "Smith", dob: Date().addingTimeInterval(-60*60*24*365*65), mrn: "34523142", imageData: nil),
         .init(firstName: "Mary", middleName: "Midwife", lastName: "Baker", dob: Date().addingTimeInterval(-60*60*24*365*65), mrn: "9872347", imageData: nil),
         .init(firstName: "Steve", middleName: "Korean", lastName: "Kim", dob: Date().addingTimeInterval(-60*60*24*365*65), mrn: "124050", imageData: nil),
     ]
-    init() {
-        container = try! ModelContainer(for: Patient.self, configurations: config)
-        patients.forEach { container.mainContext.insert($0) }
-        let data = UIImage(named: patients[0].lastAndFirstName)?.pngData()
-        patients[0].imageData = data
-        try? container.mainContext.save()
-    }
-}
-#Preview {
-    let preview = PatientPreview()
+    patients.forEach { container.mainContext.insert($0) }
+    let data = UIImage(named: patients[0].lastAndFirstName)?.pngData()
+    patients[0].imageData = data
+    try? container.mainContext.save()
     
     return NavigationStack {
-        PatientEditView(patient: preview.patients[0], save: {_ in}, delete: {_ in})
+        PatientEditView(patient: patients[0], save: {_ in}, delete: {_ in})
             .navigationTitle("Patient Edit")
-    }.modelContainer(preview.container)
+    }.modelContainer(container)
 }

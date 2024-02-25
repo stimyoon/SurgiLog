@@ -48,7 +48,7 @@ extension PatientListView {
         let patient: Patient
         var body: some View {
             HStack {
-                ProfilePhotoView(patient: patient).scaledToFit().frame(width: 40, height: 40).cornerRadius(3.0)
+                ProfilePhotoView(imageData: patient.imageData).scaledToFit().frame(width: 40, height: 40).cornerRadius(3.0)
                 Text(patient.formalName)
             }
         }

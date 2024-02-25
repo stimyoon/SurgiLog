@@ -21,9 +21,11 @@
 		4CA4EEDA2B899ED100CB81FF /* PhotoGroupListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EED92B899ED100CB81FF /* PhotoGroupListView.swift */; };
 		4CA4EEDC2B899ED800CB81FF /* PhotoGroupEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEDB2B899ED800CB81FF /* PhotoGroupEditView.swift */; };
 		4CA4EEE02B89A03400CB81FF /* Nameable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEDE2B89A03400CB81FF /* Nameable.swift */; };
-		4CA4EEE12B89A03400CB81FF /* PhotoPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEDF2B89A03400CB81FF /* PhotoPickerView.swift */; };
 		4CA4EEE32B8A202700CB81FF /* PatientListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEE22B8A202700CB81FF /* PatientListView.swift */; };
 		4CA4EEE62B8A2B3700CB81FF /* ProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEE52B8A2B3700CB81FF /* ProfilePhotoView.swift */; };
+		4CA4EEE92B8ADAEE00CB81FF /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEE82B8ADAEE00CB81FF /* Models.swift */; };
+		4CA4EEEB2B8AE15F00CB81FF /* ImageTypeListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEEA2B8AE15F00CB81FF /* ImageTypeListView.swift */; };
+		4CA4EEED2B8B803D00CB81FF /* LibraryPhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA4EEEC2B8B803D00CB81FF /* LibraryPhotoPicker.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,9 +46,11 @@
 		4CA4EED92B899ED100CB81FF /* PhotoGroupListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGroupListView.swift; sourceTree = "<group>"; };
 		4CA4EEDB2B899ED800CB81FF /* PhotoGroupEditView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoGroupEditView.swift; sourceTree = "<group>"; };
 		4CA4EEDE2B89A03400CB81FF /* Nameable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Nameable.swift; sourceTree = "<group>"; };
-		4CA4EEDF2B89A03400CB81FF /* PhotoPickerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoPickerView.swift; sourceTree = "<group>"; };
 		4CA4EEE22B8A202700CB81FF /* PatientListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PatientListView.swift; sourceTree = "<group>"; };
 		4CA4EEE52B8A2B3700CB81FF /* ProfilePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoView.swift; sourceTree = "<group>"; };
+		4CA4EEE82B8ADAEE00CB81FF /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4CA4EEEA2B8AE15F00CB81FF /* ImageTypeListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTypeListView.swift; sourceTree = "<group>"; };
+		4CA4EEEC2B8B803D00CB81FF /* LibraryPhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibraryPhotoPicker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,7 +125,7 @@
 		4CA4EEC72B8982BA00CB81FF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				4CA4EEE42B8A2B2800CB81FF /* Components */,
+				4CA4EEE72B8ADAD800CB81FF /* Image */,
 				4CA4EED82B899EB800CB81FF /* Photo */,
 				4CA4EED32B898D3200CB81FF /* Patient */,
 				4CA4EECB2B8983CA00CB81FF /* Hospital */,
@@ -151,8 +155,8 @@
 			isa = PBXGroup;
 			children = (
 				4CA4EED62B899EAC00CB81FF /* PhotoEditView.swift */,
-				4CA4EED92B899ED100CB81FF /* PhotoGroupListView.swift */,
 				4CA4EEDB2B899ED800CB81FF /* PhotoGroupEditView.swift */,
+				4CA4EED92B899ED100CB81FF /* PhotoGroupListView.swift */,
 			);
 			path = Photo;
 			sourceTree = "<group>";
@@ -161,17 +165,19 @@
 			isa = PBXGroup;
 			children = (
 				4CA4EEDE2B89A03400CB81FF /* Nameable.swift */,
-				4CA4EEDF2B89A03400CB81FF /* PhotoPickerView.swift */,
+				4CA4EEEC2B8B803D00CB81FF /* LibraryPhotoPicker.swift */,
+				4CA4EEE52B8A2B3700CB81FF /* ProfilePhotoView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
 		};
-		4CA4EEE42B8A2B2800CB81FF /* Components */ = {
+		4CA4EEE72B8ADAD800CB81FF /* Image */ = {
 			isa = PBXGroup;
 			children = (
-				4CA4EEE52B8A2B3700CB81FF /* ProfilePhotoView.swift */,
+				4CA4EEE82B8ADAEE00CB81FF /* Models.swift */,
+				4CA4EEEA2B8AE15F00CB81FF /* ImageTypeListView.swift */,
 			);
-			path = Components;
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -245,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4CA4EEB62B89824100CB81FF /* ContentView.swift in Sources */,
+				4CA4EEEB2B8AE15F00CB81FF /* ImageTypeListView.swift in Sources */,
 				4CA4EEDC2B899ED800CB81FF /* PhotoGroupEditView.swift in Sources */,
 				4CA4EEE32B8A202700CB81FF /* PatientListView.swift in Sources */,
 				4CA4EEE62B8A2B3700CB81FF /* ProfilePhotoView.swift in Sources */,
@@ -255,9 +262,10 @@
 				4CA4EEB82B89824100CB81FF /* Item.swift in Sources */,
 				4CA4EEDA2B899ED100CB81FF /* PhotoGroupListView.swift in Sources */,
 				4CA4EEB42B89824100CB81FF /* SurgiLogApp.swift in Sources */,
+				4CA4EEE92B8ADAEE00CB81FF /* Models.swift in Sources */,
 				4CA4EED72B899EAC00CB81FF /* PhotoEditView.swift in Sources */,
 				4CA4EED52B898D4200CB81FF /* PatientEditView.swift in Sources */,
-				4CA4EEE12B89A03400CB81FF /* PhotoPickerView.swift in Sources */,
+				4CA4EEED2B8B803D00CB81FF /* LibraryPhotoPicker.swift in Sources */,
 				4CA4EED22B898A7A00CB81FF /* SettingsScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

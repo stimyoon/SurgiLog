@@ -6,11 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ProfilePhotoView: View {
-    let patient: Patient
+    let imageData: Data?
     var body: some View {
-        if let imageData = patient.imageData, let uiImage = UIImage(data: imageData) {
+        if let imageData = imageData, let uiImage = UIImage(data: imageData) {
             Image(uiImage: uiImage).resizable()
         } else {
             Image(systemName: "person").resizable()
@@ -19,7 +20,8 @@ struct ProfilePhotoView: View {
 }
 
 #Preview {
-    let preview = PatientPreview()
+    let data = UIImage(named: "Smith, John")?.pngData()
     
-    return ProfilePhotoView(patient: preview.patients[0])
+    return ProfilePhotoView(imageData: data)
+    
 }

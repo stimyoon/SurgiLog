@@ -16,12 +16,12 @@ struct PhotoGroupCellView: View {
             HStack {
                 ForEach(photoGroup.photos ?? []) { photo in
                     VStack {
-                        if let data = UIImage(named: photo.name)?.pngData(), let uiImage = UIImage(data: data) {
+                        if let data = photo.imageData, let uiImage = UIImage(data: data) {
                             Image(uiImage: uiImage)
                                 .resizable()
-                                .scaledToFit()
+                                .scaledToFill()
                                 .frame(width: 100, height: 100)
-                                .clipShape(Circle())
+                                .cornerRadius(6)
                         }else{
                             Image(systemName: "photo")
                                 .resizable()
