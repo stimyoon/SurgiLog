@@ -34,10 +34,18 @@ struct HospitalListView: View {
 }
 
 #Preview {
-    let preview = HospitalPreview()
+//    let preview = HospitalPreview()
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Hospital.self, configurations: config)
+    let hospitals = [
+        Hospital(name: "FUH", longName: "Famous University Hospital"),
+        Hospital(name: "CMH", longName: "County Memorial Hospital"),
+        Hospital(name: "VAMC", longName: "Veteran's Administration Medical Center")
+    ]
+    hospitals.forEach{container.mainContext.insert($0)}
     
     return NavigationStack {
         HospitalListView()
             .navigationTitle("Hospital List")
-    }.modelContainer(preview.container)
+    }.modelContainer(container)
 }

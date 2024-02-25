@@ -56,10 +56,20 @@ extension PatientListView {
 }
 
 #Preview {
-    let preview = PatientPreview()
+    let config = ModelConfiguration(isStoredInMemoryOnly: true)
+    let container = try! ModelContainer(for: Patient.self, configurations: config)
+    let patients: [Patient] = [
+        .init(firstName: "John", middleName: "Mid", lastName: "Smith", dob: Date().addingTimeInterval(-60*60*24*365*65), mrn: "34523142", imageData: nil),
+        .init(firstName: "Mary", middleName: "Midwife", lastName: "Baker", dob: Date().addingTimeInterval(-60*60*24*365*65), mrn: "9872347", imageData: nil),
+        .init(firstName: "Steve", middleName: "Korean", lastName: "Kim", dob: Date().addingTimeInterval(-60*60*24*365*65), mrn: "124050", imageData: nil),
+    ]
+    patients.forEach { container.mainContext.insert($0) }
+    let data = UIImage(named: patients[0].lastAndFirstName)?.pngData()
+    patients[0].imageData = data
+    try? container.mainContext.save()
     
     return NavigationStack {
         PatientListView()
             .navigationTitle("Patients")
-    }.modelContainer(preview.container)
+    }.modelContainer(container)
 }
